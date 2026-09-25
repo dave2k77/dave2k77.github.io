@@ -32,7 +32,11 @@ npm run preview
 3. Preview with `npm run dev`, then run `npm run build` to validate it.
 4. Commit and push to deploy the changes.
 
-The file contains profile/contact details, links, hero text, research themes, projects, experience, education, writing, skills, and CV download links. Project filters are derived from the `category` fields. Add entries by copying an existing entry; use spaces rather than tabs in YAML. Quote strings containing a colon followed by a space. Optional publication URLs may be omitted; project `links` may be an empty list (`[]`).
+The file contains profile/contact details, links, hero text, research themes, projects, experience, education, writing, skills, and CV download links. Service offerings live in [`src/services.js`](src/services.js). Project filters are derived from the `category` fields. Add entries by copying an existing entry; use spaces rather than tabs in YAML. Quote strings containing a colon followed by a space. Optional publication URLs may be omitted; project `links` may be an empty list (`[]`).
+
+## Publish an article
+
+Create a Markdown file in `content/articles/`, following the template in [`content/articles/README.md`](content/articles/README.md). Drafts are excluded when `draft: true`. Set `draft: false`, run `npm run build`, and push to `main` to publish. The build adds an article card to the home page and creates its static page at `/articles/YOUR-SLUG/`. The page and index work without JavaScript. Use a stable filename because its slug forms the public URL. Link to videos rather than storing large video files in this repository.
 
 The Markdown body supports ordinary paragraphs, emphasis, lists, and links. Embedded raw HTML is escaped and unsafe Markdown links are rejected. Structured metadata links accept HTTP(S), mail links, and relative files under `cv/` or `content/`.
 

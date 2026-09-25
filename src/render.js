@@ -1,5 +1,6 @@
 import MarkdownIt from 'markdown-it';
 import { safeUrl } from './content.js';
+import { services } from './services.js';
 
 const md = new MarkdownIt({ html: false, linkify: false, typographer: true });
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
@@ -25,9 +26,9 @@ function signalArt() {
   return `<figure class="signal-art" aria-label="Abstract illustration of layered, interacting waves"><div class="figure-top"><span>MEMORY / SCALE / STRUCTURE</span><span aria-hidden="true">[ 01 — ∞ ]</span></div><svg viewBox="0 0 500 395" fill="none" aria-hidden="true"><defs><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#37665b" opacity=".17"/></pattern></defs><rect width="500" height="395" fill="url(#grid)"/><g stroke-width=".85">${lines}</g><path d="M35 357H468M35 353V361M468 353V361" stroke="#37665b" opacity=".3"/><text x="35" y="380" fill="#577268" font-size="10" font-family="monospace">t₀</text><text x="449" y="380" fill="#577268" font-size="10" font-family="monospace">tₙ</text></svg><figcaption><span>Patterns across scales</span><span>an illustrative study</span></figcaption></figure>`;
 }
 
-export function renderSite(data) {
+export function renderSite(data, articles = []) {
   const categories = [...new Set(data.projects.map(project => project.category))];
-  const navigation = [['about', 'About'], ['research', 'Research'], ['software', 'Software'], ['experience', 'Experience'], ['writing', 'Writing']];
+  const navigation = [['about', 'About'], ['research', 'Research'], ['software', 'Software'], ['experience', 'Experience'], ['writing', 'Writing'], ['articles', 'Articles'], ['services', 'Services']];
   const downloads = data.downloads.map(link => externalLink(link, 'button button-secondary')).join('');
   return `
   <a class="skip-link" href="#main">Skip to content</a>
@@ -69,7 +70,18 @@ export function renderSite(data) {
       ${title('05', 'PUBLICATIONS & CONTRIBUTIONS', '<span id="writing-heading">Sharing the work.</span>', externalLink(data.links.find(link => link.label === 'ORCID') || { label: 'ORCID', url: 'https://orcid.org' }, 'text-link'))}
       <div class="writing-list">${data.writing.map(entry => `<article class="writing-entry"><span class="writing-year">${e(entry.year)}</span><div><p class="eyebrow">${e(entry.type)}</p><h3>${entry.url ? `<a href="${url(entry.url)}">${e(entry.title)} ${arrow}</a>` : e(entry.title)}</h3><p>${e(entry.detail)}</p></div></article>`).join('')}</div>
     </section>
+    <section class="articles-wrap" id="articles" aria-labelledby="articles-heading"><div class="section container">
+      ${title('06', 'ARTICLES & TUTORIALS', '<span id="articles-heading">Notes from the work.</span>')}
+      <p class="section-intro">I plan to publish regularly on research, STEM education, AI, and software engineering for scientific work, including occasional video tutorials.</p>
+      ${articles.length ? `<div class="article-grid">${articles.map(article => `<article class="article-card"><p class="eyebrow">${e(article.category)} · <time datetime="${e(article.date)}">${e(new Date(`${article.date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }))}</time></p><h3><a href="./articles/${e(article.slug)}/">${e(article.title)} ${arrow}</a></h3><p>${e(article.summary)}</p><a class="text-link" href="./articles/${e(article.slug)}/">Read article <span aria-hidden="true">→</span></a></article>`).join('')}</div>` : `<div class="article-empty"><p class="eyebrow">COMING SOON</p><h3>First articles in preparation.</h3><p>Expect research notes, practical STEM and AI education ideas, and explorations of scientific software. Published posts will appear here.</p></div>`}
+    </div></section>
     <section class="skills-wrap"><div class="section container"><p class="eyebrow">THE TOOLKIT</p><h2>From theory to practice.</h2><div class="skills-grid">${data.skills.map(skill => `<div><h3>${e(skill.title)}</h3>${tags(skill.items)}</div>`).join('')}</div></div></section>
+    <section class="section container services-section" id="services" aria-labelledby="services-heading">
+      ${title('07', 'TUITION & CONSULTANCY', '<span id="services-heading">Learn deeply. Build confidently.</span>')}
+      <p class="section-intro">${e(services.intro)}</p>
+      <div class="services-grid">${services.offers.map((offer, i) => `<article class="service-card"><span class="service-number">${String(i + 1).padStart(2, '0')}</span><h3>${e(offer.title)}</h3><p>${e(offer.description)}</p></article>`).join('')}</div>
+      <div class="services-foot"><p>${e(services.audience)}</p><a class="button button-primary" href="mailto:${e(data.email)}">Discuss a project ${arrow}</a></div>
+    </section>
     <section class="contact-section" id="contact" aria-labelledby="contact-heading"><div class="container"><p class="eyebrow">RESEARCH · SOFTWARE · EDUCATION</p><div class="contact-layout"><div><h2 id="contact-heading">${e(data.contact.heading)}</h2><p>${e(data.contact.text)}</p></div><a class="contact-email" href="mailto:${e(data.email)}"><span>Say hello</span><strong>${e(data.email)} ${arrow}</strong></a></div><div class="contact-links">${data.links.map(link => externalLink(link)).join('')}</div></div></section>
   </main>
   <footer class="container footer"><p>© ${e(data.updated.slice(0, 4))} ${e(data.name)}</p><p>Last updated ${new Date(`${data.updated}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>`;

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "node scripts/validate-content.mjs && vite build",
+    "build": "node scripts/validate-content.mjs && vite build && node scripts/build-articles.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test",
     "test:browser": "playwright test"

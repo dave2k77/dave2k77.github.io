@@ -4,6 +4,7 @@ import { renderSite } from './render.js';
 
 const site = document.querySelector('#site');
 const publishedMarkup = site.innerHTML;
+const articles = JSON.parse(document.querySelector('#article-data')?.textContent || '[]');
 document.documentElement.classList.remove('no-js');
 let observer;
 function observeSections() {
@@ -53,7 +54,7 @@ async function refreshProfile() {
     const response = await fetch(`${import.meta.env.BASE_URL}content/profile.md`, { cache: 'no-cache' });
     if (!response.ok) throw new Error(`Content request failed (${response.status}).`);
     const profile = parseProfile(await response.text());
-    const markup = renderSite(profile);
+    const markup = renderSite(profile, articles);
     // Preserve focus and scroll when the pre-rendered version is already current.
     const template = document.createElement('template');
     template.innerHTML = markup;

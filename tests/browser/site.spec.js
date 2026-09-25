@@ -8,6 +8,9 @@ test('desktop: content, filters, downloads, accessibility and screenshot', async
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Understanding complexity');
+  await expect(page.getByRole('heading', { name: 'Notes from the work.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'First articles in preparation.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Learn deeply. Build confidently.' })).toBeVisible();
   await page.getByRole('button', { name: 'Teaching', exact: true }).click();
   await expect(page.locator('.project-card:visible')).toHaveCount(2);
   await expect(page.locator('#filter-status')).toContainText('2 teaching projects');
