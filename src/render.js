@@ -28,7 +28,7 @@ function signalArt() {
 
 export function renderSite(data, articles = []) {
   const categories = [...new Set(data.projects.map(project => project.category))];
-  const navigation = [['about', 'About'], ['research', 'Research'], ['software', 'Software'], ['experience', 'Experience'], ['writing', 'Writing'], ['articles', 'Articles'], ['services', 'Services']];
+  const navigation = [['about', 'About'], ['research', 'Research'], ['software', 'Software'], ['experience', 'Experience'], ['writing', 'Writing'], ['articles', 'Articles'], ['tuition', 'Tuition'], ['consultancy', 'Consultancy']];
   const downloads = data.downloads.map(link => externalLink(link, 'button button-secondary')).join('');
   return `
   <a class="skip-link" href="#main">Skip to content</a>
@@ -76,12 +76,18 @@ export function renderSite(data, articles = []) {
       ${articles.length ? `<div class="article-grid">${articles.map(article => `<article class="article-card"><p class="eyebrow">${e(article.category)} · <time datetime="${e(article.date)}">${e(new Date(`${article.date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }))}</time></p><h3><a href="./articles/${e(article.slug)}/">${e(article.title)} ${arrow}</a></h3><p>${e(article.summary)}</p><a class="text-link" href="./articles/${e(article.slug)}/">Read article <span aria-hidden="true">→</span></a></article>`).join('')}</div>` : `<div class="article-empty"><p class="eyebrow">COMING SOON</p><h3>First articles in preparation.</h3><p>Expect research notes, practical STEM and AI education ideas, and explorations of scientific software. Published posts will appear here.</p></div>`}
     </div></section>
     <section class="skills-wrap"><div class="section container"><p class="eyebrow">THE TOOLKIT</p><h2>From theory to practice.</h2><div class="skills-grid">${data.skills.map(skill => `<div><h3>${e(skill.title)}</h3>${tags(skill.items)}</div>`).join('')}</div></div></section>
-    <section class="section container services-section" id="services" aria-labelledby="services-heading">
-      ${title('07', 'TUITION & CONSULTANCY', '<span id="services-heading">Learn deeply. Build confidently.</span>')}
-      <p class="section-intro">${e(services.intro)}</p>
-      <div class="services-grid">${services.offers.map((offer, i) => `<article class="service-card"><span class="service-number">${String(i + 1).padStart(2, '0')}</span><h3>${e(offer.title)}</h3><p>${e(offer.description)}</p></article>`).join('')}</div>
-      <div class="services-foot"><p>${e(services.audience)}</p><a class="button button-primary" href="mailto:${e(data.email)}">Discuss a project ${arrow}</a></div>
+    <section class="section container services-section" id="tuition" aria-labelledby="tuition-heading">
+      ${title('07', 'TUITION & RESEARCH RESIDENCY', '<span id="tuition-heading">Learn deeply. Explore openly.</span>')}
+      <p class="section-intro">${e(services.tuition.intro)}</p>
+      <div class="services-grid">${services.tuition.offers.map((offer, i) => `<article class="service-card"><span class="service-number">${String(i + 1).padStart(2, '0')}</span><h3>${e(offer.title)}</h3><p>${e(offer.description)}</p></article>`).join('')}</div>
+      <div class="services-foot"><p>${e(services.tuition.audience)}</p><a class="button button-primary" href="mailto:${e(data.email)}">Enquire about tuition ${arrow}</a></div>
     </section>
+    <section class="consultancy-wrap" id="consultancy" aria-labelledby="consultancy-heading"><div class="section container">
+      ${title('08', 'STEM & AI EDUCATION CONSULTANCY', '<span id="consultancy-heading">Design learning that lasts.</span>')}
+      <p class="section-intro">${e(services.consultancy.intro)}</p>
+      <div class="services-grid consultancy-grid">${services.consultancy.offers.map((offer, i) => `<article class="service-card"><span class="service-number">${String(i + 1).padStart(2, '0')}</span><h3>${e(offer.title)}</h3><p>${e(offer.description)}</p></article>`).join('')}</div>
+      <div class="services-foot"><p>${e(services.consultancy.audience)}</p><a class="button button-primary" href="mailto:${e(data.email)}">Discuss consultancy ${arrow}</a></div>
+    </div></section>
     <section class="contact-section" id="contact" aria-labelledby="contact-heading"><div class="container"><p class="eyebrow">RESEARCH · SOFTWARE · EDUCATION</p><div class="contact-layout"><div><h2 id="contact-heading">${e(data.contact.heading)}</h2><p>${e(data.contact.text)}</p></div><a class="contact-email" href="mailto:${e(data.email)}"><span>Say hello</span><strong>${e(data.email)} ${arrow}</strong></a></div><div class="contact-links">${data.links.map(link => externalLink(link)).join('')}</div></div></section>
   </main>
   <footer class="container footer"><p>© ${e(data.updated.slice(0, 4))} ${e(data.name)}</p><p>Last updated ${new Date(`${data.updated}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>`;
