@@ -8,7 +8,7 @@ credentials: FIMA
 role: Scientific machine learning researcher & STEM educator
 location: United Kingdom
 affiliation: University of Reading
-email: d.r.chin@pgr.reading.ac.uk
+email: davianc@proton.me
 updated: '2026-09-25'
 description: Davian R. Chin — scientific machine learning researcher, PhD candidate at the University of Reading, and STEM educator. Fractional calculus, stochastic dynamics, and reproducible research software.
 hero:
