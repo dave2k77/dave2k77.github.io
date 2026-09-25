@@ -59,6 +59,8 @@ projects:
     tags: [Python, Time series, Reproducibility]
     url: https://github.com/dave2k77/lrdbench
     links:
+      - label: Website
+        url: https://dave2k77.github.io/lrdbench/
       - label: Documentation
         url: https://lrdbench.readthedocs.io
       - label: Software DOI
