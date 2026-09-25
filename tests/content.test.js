@@ -10,7 +10,7 @@ test('Windows line endings and UTF-8 BOM preserve profile metadata and Markdown'
   const profile = parseProfile('\uFEFF' + source.replace(/\r?\n/g, '\r\n'));
   assert.equal(profile.name, 'Davian R. Chin');
   assert.ok(profile.projects.length >= 3);
-  assert.ok(profile.about.includes('**Davian**'));
+  assert.equal(profile.about, parseProfile(source).about);
 });
 
 test('malformed content fails before deployment with a useful message', () => {
