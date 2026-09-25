@@ -12,7 +12,7 @@ email: davianc@proton.me
 updated: '2026-09-25'
 description: Davian R. Chin — scientific machine learning researcher, PhD candidate at the University of Reading, and STEM educator. Fractional calculus, stochastic dynamics, and reproducible research software.
 hero:
-  eyebrow: Mathematics · Machine learning · Education
+  eyebrow: Mathematics · Computational Science . Machine Learning · Education
   heading: Understanding complexity.
   emphasis: Connecting ideas.
   summary: I study memory and scale in stochastic systems, build scientific machine learning tools, and bring mathematical ideas to life through teaching.
