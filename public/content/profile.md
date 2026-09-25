@@ -44,7 +44,7 @@ research:
       tags: [Fractional calculus, Neural operators, JAX / PyTorch]
     - title: Brain-inspired mathematical models
       label: 03 / APPLICATIONS
-      description: Criticality and scale-free dynamics in brain networks motivate my mathematical research. Biomedical and clinical validation remain longer-term applications.
+      description: Criticality and scale-free dynamics in brain networks motivate my mathematical research. Developing models to simulate and generate critical neural dynamics that could translate into clinical applications in the future is a core component of my research.
       tags: [Computational neuroscience, Criticality, Multiscale dynamics]
   current:
     label: CURRENT DOCTORAL WORK
@@ -94,7 +94,7 @@ projects:
     url: https://github.com/dave2k77/differentiable-probabilistic-programming-curriculum
     links: []
 experience:
-  - role: PhD Researcher
+  - role: PhD Student & Researcher - Biomedical Engineering
     organisation: University of Reading
     location: United Kingdom
     dates: 2025–present
@@ -196,7 +196,7 @@ downloads:
   - label: Teaching CV · PDF
     url: cv/Davian_Chin_CV_Teaching.pdf
 ---
-I’m **Davian**, a mathematical scientist, scientific machine learning researcher, and educator based in the UK. My work sits at the intersection of **fractional calculus, stochastic dynamics, and computational neuroscience**.
+My name is Davian Chin, a mathematical scientist, scientific machine learning researcher, and educator based in the Reading, UK. My work sits at the intersection of fractional calculus, stochastic dynamics, and computational neuroscience.
 
 At the University of Reading, I investigate how we can make trustworthy claims about memory and scale in finite time series. I build open research software to make the assumptions, methods, and evidence behind those claims easier to inspect and reproduce.
 
