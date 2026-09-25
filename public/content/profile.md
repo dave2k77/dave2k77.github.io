@@ -32,24 +32,24 @@ facts:
   - value: FIMA
     label: Fellow of the IMA
 research:
-  intro: How can we distinguish genuine memory from apparent structure in complex data? My work connects mathematical foundations, careful inference, and reproducible computation.
+  intro: How can we make trustworthy claims about memory and scale from finite stochastic time series? My programme connects audited comparisons, conditional mathematical analysis, and reproducible computation.
   topics:
     - title: Memory & stochastic dynamics
       label: 01 / INFERENCE
-      description: Long-range dependence, heavy-tailed processes, and the limits of inference from finite time series. Separating persistent dependence from roughness, tails, and nonstationarity.
+      description: Audited comparisons of long-range dependence estimators, contamination sensitivity, and interval coverage. I distinguish dependence from scaling, regularity, heavy tails, and nonstationarity.
       tags: [Long-range dependence, Stochastic processes, Wavelets]
     - title: Fractional & scientific machine learning
       label: 02 / METHODS
-      description: Fractional calculus and dynamical systems meet differentiable programming, neural operators, and physics-informed learning.
+      description: A proposed null-relative dependence field combines a second-order reference with bounded excursion measurements. A lower-order component and operator learning remain separately gated extensions.
       tags: [Fractional calculus, Neural operators, JAX / PyTorch]
     - title: Brain-inspired mathematical models
       label: 03 / APPLICATIONS
-      description: Criticality and scale-free dynamics in brain networks motivate my mathematical research. Developing models to simulate and generate critical neural dynamics that could translate into clinical applications in the future is a core component of my research.
+      description: Brain dynamics motivate a focused reduced-model study of which mechanisms can be distinguished from observed summaries. Independent computational validation precedes any empirical or clinical claim.
       tags: [Computational neuroscience, Criticality, Multiscale dynamics]
   current:
     label: CURRENT DOCTORAL WORK
     title: Trustworthy inference of memory and scale dependence
-    description: My PhD combines audited estimator benchmarks, conditional theory on inference limitations (the *Variance Trap*), and a proposed null-relative dependence field. The theory and dependence framework are in development.
+    description: My PhD builds on an audited estimator study and develops conditional *Variance Trap* arguments, a proposed two-component null-relative dependence field, and a focused mechanistic comparison. The mathematical analysis, field estimation, and independent validation remain in progress. Lower-order and operator-learning extensions depend on separate evidence gates.
     detail: 'University of Reading · 2025–present · Expected completion 2028'
 projects:
   - name: lrdbench
@@ -99,7 +99,7 @@ experience:
     location: United Kingdom
     dates: 2025–present
     category: Research
-    description: Computational neuroscience and scientific machine learning. Developing audited benchmarks, conditional inference theory, and methods for characterising dependence in stochastic dynamics.
+    description: Computational biomedical engineering and scientific machine learning. Investigating estimator reliability, conditional limits of memory inference, null-relative dependence measurements, and a focused brain-inspired model.
   - role: Founder & Director
     organisation: Neuryte Learning Ltd
     location: United Kingdom
@@ -146,7 +146,7 @@ education:
   - degree: PhD, Biomedical Engineering
     institution: University of Reading
     dates: 2025–present · Expected 2028
-    detail: Computational neuroscience; trustworthy inference of memory and scale dependence in stochastic dynamics.
+    detail: Trustworthy memory inference in stochastic time series, null-relative dependence methods, and a focused brain-inspired model study.
   - degree: MSc, Computer Science
     institution: University of East London
     dates: '2023'
@@ -176,7 +176,7 @@ writing:
   - title: LRD benchmarking, conditional inference limits & null-relative dependence
     type: Manuscripts in development
     year: Ongoing
-    detail: Research on the corrected estimator benchmark, the conditional Variance Trap analysis, and a restricted dependence-field framework.
+    detail: An audited benchmark manuscript is being rebuilt; conditional Variance Trap arguments and a restricted two-component dependence field remain in development.
 skills:
   - title: Scientific computing
     items: [Python, JAX, Equinox, NumPyro, PyTorch, NumPy / SciPy, pandas, scikit-learn]
@@ -196,8 +196,8 @@ downloads:
   - label: Teaching CV · PDF
     url: cv/Davian_Chin_CV_Teaching.pdf
 ---
-My name is Davian Chin, a mathematical scientist, scientific machine learning researcher, and educator based in the Reading, UK. My work sits at the intersection of fractional calculus, stochastic dynamics, and computational neuroscience.
+My name is Davian Chin, a mathematical scientist, scientific machine learning researcher, and educator based in Reading, UK. My work brings together stochastic dynamics, mathematical inference, scientific computing, and brain-inspired modelling.
 
-At the University of Reading, I investigate how we can make trustworthy claims about memory and scale in finite time series. I build open research software to make the assumptions, methods, and evidence behind those claims easier to inspect and reproduce.
+At the University of Reading, I study when finite time series support claims about memory and scale. My doctoral programme combines audited estimator benchmarking, conditional mathematical analysis, a proposed null-relative dependence field, and a focused mechanistic comparison. I build open research software to make the methods and evidence inspectable.
 
 Alongside research, I bring more than 15 years of teaching and leadership experience across the UK, China, Kazakhstan, and Jamaica. From the classroom to scientific code, I’m interested in making complex ideas both rigorous and accessible.
