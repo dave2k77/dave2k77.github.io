@@ -1,0 +1,128 @@
+% Davian R. Chin — Researcher CV (Scientific ML / Computational Neuroscience)
+% Compile: tectonic Davian_Chin_CV_Research.tex
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,margin=1.75cm,top=1.5cm,bottom=1.6cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\AtBeginDocument{\RaggedRight}
+
+\definecolor{accent}{RGB}{18,52,110}   % deep academic blue
+\definecolor{muted}{RGB}{90,90,90}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\emergencystretch=1.5em
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{2pt}{\color{accent}\hrule height 0.8pt}]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+
+\newcommand{\entry}[2]{{\textbf{#1}} \hfill {\small\color{muted}#2}\\[1pt]}
+\newcommand{\tag}[1]{{\small\color{muted}#1}}
+
+\begin{document}
+
+%========================  HEADER  ========================
+{\Huge\bfseries\color{accent} Davian R. Chin}\\[3pt]
+{\large Scientific Machine Learning Researcher --- Fractional Calculus \& Neural Dynamics}\\[5pt]
+{\small
+davianc@proton.me \,|\, d.r.chin@pgr.reading.ac.uk \,|\, +44\,7549\,039554 \,|\, London, UK\\
+\href{https://www.linkedin.com/in/davianc}{linkedin.com/in/davianc} \,|\,
+\href{https://github.com/dave2k77}{github.com/dave2k77} \,|\,
+\href{https://orcid.org/0009-0003-9434-3919}{ORCID 0009-0003-9434-3919}}
+
+%========================  PROFILE  ========================
+\section{Research Profile}
+Scientific machine learning researcher and computational scientist (PhD candidate; Fellow of the IMA) working at the intersection of fractional calculus, stochastic processes, operator theory and deep learning.
+
+My PhD studies trustworthy long-range dependence (LRD) inference in finite stochastic time series through audited benchmarking, conditional theory (the \emph{Variance Trap}) and a proposed null-relative dependence field. It separates fine-scale path regularity, tails and nonstationarity from coarse-scale memory.
+
+I build reproducible research software in Python (JAX/PyTorch). Brain-inspired models motivate the work; clinical validation is a longer-term application. Seeking research-scientist roles in scientific ML.
+
+%========================  INTERESTS  ========================
+\section{Research Interests}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item Long-range dependence and heavy-tailed stochastic processes; $L^p$/Besov path regularity and wavelet characterisations of roughness.
+  \item Fractional calculus, fractional-order differential equations, functional analysis and operator theory.
+  \item Scientific ML: neural operators, neural (fractional) ODEs/SDEs, physics-informed learning, fractional reservoir computing.
+  \item Criticality, scale-free dynamics and self-organisation in brain networks; biomarkers of neurodegeneration.
+\end{itemize}
+
+%========================  EDUCATION  ========================
+\section{Education}
+\entry{PhD, Biomedical Engineering (Computational Neuroscience)}{University of Reading, UK \,--\, 2025--present (expected 2028)}
+Programme: \emph{Trustworthy inference of memory and scale dependence in stochastic dynamics} (supervisors: Prof.\ W.~Holderbaum, Prof.\ S.~Nasuto). Focus: benchmarking, conditional inference limits, null-relative dependence and brain-inspired models.
+
+\entry{MSc, Computer Science (AI, ML \& Big Data Technologies)}{University of East London, UK \,--\, 2023}
+Focus: physics-informed neural operators for heat/diffusion PDEs; machine vision; big-data analytics.
+
+\entry{MA, Education (Development, Management \& Technology)}{University of South Wales, UK \,--\, 2018}
+Dissertation: computational thinking as a framework for mathematics education.
+
+\entry{BSc, Mathematics \& Computer Science}{University of the West Indies, Jamaica \,--\, 2008}
+Pure and applied mathematics with mathematical modelling and operations research.
+
+%========================  EXPERIENCE  ========================
+\section{Research Experience}
+\entry{PhD Researcher --- Computational Neuroscience \& Scientific ML}{University of Reading \,--\, 2025--present}
+\begin{itemize}[leftmargin=1.3em,itemsep=1.5pt,topsep=2pt]
+  \item \textbf{Empirical benchmarking:} created and released \texttt{lrdbench}; completed and audited a controlled simulation study of 21 point-estimation pipelines from 12 base algorithms, using 66,000 independent clean records and 161,000 contaminated descendants. Separated point accuracy, interval availability and coverage in the analysis.
+  \item \textbf{Conditional theory:} developing the \emph{Variance Trap} account of four distinct limitations: the absence of a finite second-order target under infinite variance, quadratic measurement vulnerability, restricted-observation non-identifiability, and miscalibration of specified estimators. Consolidating exact assumptions and checked proofs.
+  \item \textbf{Dependence framework:} proposing a null-relative, functional-indexed coarse-scale field in a multiscale atlas of dependence documents. A restricted study will test classical reduction and a bounded or lower-order extension; fine Sobolev--Besov regularity remains separate from persistent dependence.
+  \item \textbf{Dissemination:} released research software with Zenodo DOIs, CI and documentation; invited talk and poster at the School of Biological Sciences ECR Symposium (University of Reading, July 2026). Preparing manuscripts on the corrected benchmark, conditional theory and dependence field.
+\end{itemize}
+
+\newpage
+\entry{Applied ML Research (MSc projects)}{University of East London \,--\, 2021--2023}
+\begin{itemize}[leftmargin=1.3em,itemsep=1.5pt,topsep=2pt]
+  \item Built a physics-informed Fourier neural operator solving the 1D/2D heat equation, studying physics-loss weighting versus Fourier-analysis techniques for data-efficient PDE surrogate modelling.
+  \item Built, trained and deployed CNN/DNN machine-vision models and tree/ensemble/SVM classifiers on a big-data stack; benchmarked optimisation strategies for high-accuracy image classification.
+\end{itemize}
+
+%========================  SOFTWARE  ========================
+\section{Open-Source Research Software}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+  \item \textbf{\href{https://github.com/dave2k77/lrdbench}{lrdbench}} \tag{Python \,--\, PyPI v1.2.1 \,--\, Zenodo 10.5281/zenodo.20937726 \,--\, docs at lrdbench.readthedocs.io}\\
+  Reproducible benchmark framework for LRD estimators: ground-truth, stress-test and observational modes; bundled temporal, spectral, geometric, wavelet, aggregation and data-driven estimator families; contamination operators (heavy-tailed noise, level shifts, outliers, trends); uncertainty-aware interval-coverage reporting; manifest-driven, provenance-complete execution.
+  \item \textbf{\href{https://github.com/dave2k77/hpfracc}{hpfracc}} \tag{Python/JAX \,--\, Zenodo 10.5281/zenodo.20942679}\\
+  Pre-alpha research-support library for fractional calculus and fractional dynamical systems in differentiable scientific computing: RL/Caputo/GL operator families, explicit/implicit, non-uniform and adaptive Caputo FDE solvers, experimental neural FODE workflows, probabilistic calibration and stochastic simulation helpers.
+  \item \textbf{\href{https://github.com/dave2k77/fourier_pino_model}{fourier\_pino\_model}} \tag{Python/PyTorch}\\
+  Physics-informed Fourier neural-operator surrogate for the 1D/2D heat equation.
+\end{itemize}
+
+%========================  PUBLICATIONS  ========================
+\section{Publications, Manuscripts \& Conference Contributions}
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+  \item Batic, D., Chin, D. \& Nowakowski, M. (2011). The repulsive nature of naked singularities from the point of view of Quantum Mechanics. \emph{European Physical Journal C}, 71, 1624. \href{https://doi.org/10.1140/epjc/s10052-011-1624-3}{doi:10.1140/epjc/s10052-011-1624-3}
+  \item \emph{Manuscripts in development:} corrected LRD estimator benchmark; conditional \emph{Variance Trap} analysis; restricted null-relative dependence-field methods.
+  \item Talk \& poster: \emph{Trustworthy methods for scientific discovery in critical brain research}, School of Biological Sciences ECR Symposium, University of Reading, July 2026.
+  \item Poster: \emph{Fat-tail phenomena and long-memory processes in biological systems}, School of Biological Sciences \& Biomedical Engineering Research Conference, University of Reading, 2025.
+\end{itemize}
+
+%========================  SKILLS  ========================
+\section{Technical Skills}
+\begin{itemize}[leftmargin=1.3em,itemsep=1pt,topsep=2pt]
+  \item \textbf{Scientific computing:} JAX, Equinox, NumPyro, PyTorch, NumPy/SciPy, scikit-learn, pandas, Matplotlib; GPU/CUDA, HPC, Colab/Cloud, experiment tracking.
+  \item \textbf{Mathematics \& modelling:} fractional calculus and FDEs, stochastic processes and SDEs, functional analysis/operator theory, wavelets, numerical methods, dynamical systems/criticality, Bayesian inference, time-series analysis.
+  \item \textbf{Machine learning:} neural operators, PINNs, neural (F)ODEs/SDEs, reservoir computing, surrogate modelling, deep learning (CNN/RNN/LSTM), classical ML.
+  \item \textbf{Software \& MLOps:} Python (primary), R, MATLAB, C/C++, SQL, Haskell, \LaTeX; Git/GitHub, CI, Docker, Linux; reproducible, provenance-complete workflows.
+  \item \textbf{Domains:} computational neuroscience, biomedical engineering, EEG/neural time-series analysis, scientific software engineering.
+\end{itemize}
+
+%========================  MEMBERSHIPS  ========================
+\section{Professional Memberships}
+Fellow, Institute of Mathematics and its Applications (FIMA).
+
+\vspace{4pt}
+{\small\color{muted} References available on request.}
+
+\end{document}
